@@ -1,0 +1,118 @@
+{
+    "ociVersion": "1.0.2-dev",
+    "process": {
+        "user": { /* ... */ },
+        "args": [
+            "/bin/sleep",
+            "10000"
+        ],
+        "env": [
+            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+            "HOSTNAME=1ebf46a020c7"
+        ],
+        "cwd": "/",
+        "capabilities": { /* ... */ },
+        "apparmorProfile": "docker-default",
+        "oomScoreAdj": 0
+    },
+    "root": {
+        "path": "/var/lib/docker/overlay2/ce1e480d2a5f22adb5099f7f8e7886adc6ac69ac801d65035f825bc55a4039c4/merged"
+    },
+    "hostname": "1ebf46a020c7",
+    "mounts": [
+        /* ... */
+        {
+            "destination": "/etc/resolv.conf",
+            "type": "bind",
+            "source": "/var/lib/docker/containers/1ebf46a020c7bdcff87ae8351c7ca7879174d5c6f4f1d74353646355a6cd1bf5/resolv.conf",
+            "options": [
+                "rbind",
+                "rprivate"
+            ]
+        },
+        {
+            "destination": "/etc/hostname",
+            "type": "bind",
+            "source": "/var/lib/docker/containers/1ebf46a020c7bdcff87ae8351c7ca7879174d5c6f4f1d74353646355a6cd1bf5/hostname",
+            "options": [
+                "rbind",
+                "rprivate"
+            ]
+        },
+        {
+            "destination": "/etc/hosts",
+            "type": "bind",
+            "source": "/var/lib/docker/containers/1ebf46a020c7bdcff87ae8351c7ca7879174d5c6f4f1d74353646355a6cd1bf5/hosts",
+            "options": [
+                "rbind",
+                "rprivate"
+            ]
+        }
+    ],
+    "hooks": {
+        "prestart": [
+            {
+                "path": "/proc/841/exe",
+                "args": [
+                    "libnetwork-setkey",
+                    "-exec-root=/var/run/docker",
+                    "1ebf46a020c7bdcff87ae8351c7ca7879174d5c6f4f1d74353646355a6cd1bf5",
+                    "1ec9c66ef41d"
+                ]
+            }
+        ]
+    },
+    "linux": {
+        "sysctl": { /* ... */ },
+        "resources": {
+            "devices": [ /* ... */ ],
+            "memory": {
+                "disableOOMKiller": false
+            },
+            "cpu": {
+                "shares": 0
+            },
+            "blockIO": {
+                "weight": 0
+            }
+        },
+        "cgroupsPath": "/docker/1ebf46a020c7bdcff87ae8351c7ca7879174d5c6f4f1d74353646355a6cd1bf5",
+        "namespaces": [
+            {
+                "type": "mount"
+            },
+            {
+                "type": "network"
+            },
+            {
+                "type": "uts"
+            },
+            {
+                "type": "pid"
+            },
+            {
+                "type": "ipc"
+            }
+        ],
+        "seccomp": { /* ... */ },
+        "maskedPaths": [
+            "/proc/asound",
+            "/proc/acpi",
+            "/proc/kcore",
+            "/proc/keys",
+            "/proc/latency_stats",
+            "/proc/timer_list",
+            "/proc/timer_stats",
+            "/proc/sched_debug",
+            "/proc/scsi",
+            "/sys/firmware"
+        ],
+        "readonlyPaths": [
+            "/proc/bus",
+            "/proc/fs",
+            "/proc/irq",
+            "/proc/sys",
+            "/proc/sysrq-trigger"
+        ]
+    }
+}
